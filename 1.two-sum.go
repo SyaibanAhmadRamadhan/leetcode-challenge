@@ -36,7 +36,7 @@ func twoSum(nums []int, target int) []int {
 		//complement to find the pair of num itself
 		complement := target - num
 		if j, ok := seen[complement]; ok {
-			return []int{j, i}
+			return []int{i, j}
 		}
 
 		// Store the current number with its index
