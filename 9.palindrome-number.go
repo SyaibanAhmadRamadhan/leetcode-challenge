@@ -8,31 +8,28 @@ package leetcode
 
 // @lc code=start
 func isPalindrome(x int) bool {
-	// cara 1
-	// result
-	// 11511/11511 cases passed (8 ms)
-	// Your runtime beats 18.48 % of golang submissions
-	// Your memory usage beats 56.09 % of golang submissions (6.2 MB)
 	// {
 	// 	str := strconv.Itoa(x)
-	// 	b := []byte(str)
 	// 	for i, j := 0, len(str)-1; i < j; i, j = i+1, j-1 {
-	// 		if b[i] != b[j] {
+	// 		if str[i] != str[j] {
 	// 			return false
 	// 		}
 	// 	}
+
 	// 	return true
 	// }
 
-	// digit manipulation number
-	// cara 2
-	// 11511/11511 cases passed (0 ms)
-	// Your runtime beats 100 % of golang submissions
-	// Your memory usage beats 79 % of golang submissions (6 MB)
+	// digital manipulation number
+	// 121/10 12
+	// 121%10 = 1
+	// last := x%10 -> 1
+	// 121/100 = 1
+	// 21890/10_000 = 2
 	{
 		if x < 0 {
 			return false
 		}
+
 		divisor := 1
 		for x/divisor >= 10 {
 			divisor *= 10
