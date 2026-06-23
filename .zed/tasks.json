@@ -1,0 +1,8 @@
+[
+  {
+    "label": "Debug Go Project",
+    "command": "dlv",
+    "args": ["debug", "."],
+    "use_new_terminal": true,
+  },
+]

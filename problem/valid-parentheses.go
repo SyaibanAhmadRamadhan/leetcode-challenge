@@ -1,13 +1,10 @@
-package leetcode
+package problem
 
-/*
- * @lc app=leetcode id=20 lang=golang
- *
- * [20] Valid Parentheses
- */
+func IsValid(s string) bool {
+	if len(s) <= 0 {
+		return false
+	}
 
-// @lc code=start
-func isValid(s string) bool {
 	if len(s) <= 32 {
 		stack := uint64(0)
 		trash := 0
@@ -24,7 +21,6 @@ func isValid(s string) bool {
 				return 0
 			}
 		}
-
 		matchLatest := func(s rune) uint64 {
 			switch s {
 			case ')':
@@ -40,7 +36,7 @@ func isValid(s string) bool {
 
 		for _, v := range s {
 			if code := first(v); code != 0 {
-				stack = (stack << 2) | code
+				stack = (stack<<2 | code)
 				trash++
 				continue
 			}
@@ -54,7 +50,6 @@ func isValid(s string) bool {
 				if latest != code {
 					return false
 				}
-
 				stack >>= 2
 				trash--
 				continue
@@ -65,6 +60,7 @@ func isValid(s string) bool {
 
 		return trash == 0
 	} else {
+
 		stack := make([]rune, 0, len(s))
 		for _, v := range s {
 			switch v {
@@ -84,11 +80,15 @@ func isValid(s string) bool {
 				}
 			default:
 				return false
+
 			}
 		}
 
-		return len(stack) == 0
-	}
-}
+		if len(stack) > 0 {
+			return false
+		}
 
-// @lc code=end
+		return true
+	}
+
+}
